@@ -9,6 +9,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 import matplotlib.pyplot as plt
+import csv
 
 from local_code.stage_2_code.dataset_loader import Dataset_Loader
 from local_code.stage_2_code.method_mlp import Method_MLP
@@ -198,3 +199,13 @@ for i in results:
           f"{i['Weighted F1']:>10.4f}")
 
 print('************ Finished Ablation Study ************')
+
+# Save ablation results as csv
+csv_path = os.path.join(result_obj.result_destination_folder_path, 'ablation_results.csv')
+
+with open(csv_path, 'w', newline='') as f:
+    writer = csv.DictWriter(f, fieldnames=results[0].keys())
+    writer.writeheader()
+    writer.writerows(results)
+
+print(f'Ablation results saved to: {csv_path}')
