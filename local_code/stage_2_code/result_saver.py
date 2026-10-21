@@ -28,4 +28,3 @@ class Result_Saver(result):
         with open(path, 'rb') as f:
             self.data = pickle.load(f)
         return self.data
-```
