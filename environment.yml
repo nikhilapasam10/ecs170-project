@@ -5,4 +5,12 @@ dependencies:
   - python=3.12
   - pandas
   - matplotlib
-prefix: /opt/miniconda3/envs/ecs170
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - pip
+  - pip:
+      - torch
