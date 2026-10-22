@@ -1,6 +1,6 @@
 
 """
-Dataset loader for Stage 2 MNIST classification.
+Dataset loader for Stage 2 classification.
 Loads the training and testing CSV files, separates the features and labels, normalizes the pixel values.
 """
 
