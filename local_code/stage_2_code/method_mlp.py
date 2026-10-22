@@ -1,5 +1,5 @@
 '''
-Method class for MLP on MNIST (10-class classification)
+Method class for MLP on 10-class classification
 (784 pixel features, 10 digit classes)
 '''
 
