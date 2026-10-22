@@ -1,6 +1,6 @@
 
 '''
-Stage 2 - MLP on MNIST digit classification
+Stage 2 - MLP on digit classification
 '''
 
 import os
