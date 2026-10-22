@@ -1,0 +1,8 @@
+name: ecs170
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - matplotlib
+prefix: /opt/miniconda3/envs/ecs170
