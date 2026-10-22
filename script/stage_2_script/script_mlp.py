@@ -22,7 +22,7 @@ np.random.seed(2)
 torch.manual_seed(2)
 
 # ---- object initialization -------------------------------
-data_obj = Dataset_Loader('MNIST', '')
+data_obj = Dataset_Loader('Digits', '')
 data_obj.dataset_source_folder_path = '../../data/stage_2_data/'
 data_obj.dataset_train_file_name = 'train.csv'
 data_obj.dataset_test_file_name = 'test.csv'
@@ -70,7 +70,7 @@ ax2.set_ylabel('Accuracy (%)')
 ax2.set_ylim([0, 101])
 ax2.grid(True, alpha=0.3)
 
-plt.suptitle('Stage 2 MLP - MNIST Digit Classification')
+plt.suptitle('Stage 2 MLP - Digit Classification')
 plt.tight_layout()
 plt.savefig(os.path.join(result_obj.result_destination_folder_path, 'learning_curve.png'), dpi=150, bbox_inches='tight')
 plt.show()
