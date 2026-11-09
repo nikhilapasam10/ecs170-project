@@ -131,3 +131,26 @@ class Method_CNN(method, nn.Module):
         print(f'--training on {self.device}')
         self._train_loop(X_train, y_train)
         return self._predict(X_test)
+    
+class Method_CNN_MNIST(Method_CNN):
+    DEFAULTS = dict(conv_channels=[32, 64], hidden_dim=128, max_epoch=8, batch_size=128,
+                    optimizer_name='adam', loss_name='cross_entropy', learning_rate=0.001)
+ 
+    def __init__(self, mName=None, mDescription=None, **kw):
+        super().__init__(mName, mDescription, **{**self.DEFAULTS, **kw})
+ 
+ 
+class Method_CNN_ORL(Method_CNN):
+    DEFAULTS = dict(conv_channels=[16, 32], hidden_dim=128, max_epoch=20, batch_size=32,
+                    optimizer_name='adam', loss_name='cross_entropy', learning_rate=0.001)
+ 
+    def __init__(self, mName=None, mDescription=None, **kw):
+        super().__init__(mName, mDescription, **{**self.DEFAULTS, **kw})
+ 
+ 
+class Method_CNN_CIFAR(Method_CNN):
+    DEFAULTS = dict(conv_channels=[32, 64, 128], hidden_dim=256, max_epoch=10, batch_size=128,
+                    optimizer_name='adam', loss_name='cross_entropy', learning_rate=0.001)
+ 
+    def __init__(self, mName=None, mDescription=None, **kw):
+        super().__init__(mName, mDescription, **{**self.DEFAULTS, **kw})
