@@ -11,8 +11,8 @@ class Evaluate_Metrics(evaluate):
         true_y = self.data['true_y']
         pred_y = self.data['pred_y']
         return {
-            'Accuracy': round(accuracy_score(true_y, pred_y), 4),
-            'Precision': round(precision_score(true_y, pred_y, zero_division=0), 4),
-            'Recall': round(recall_score(true_y, pred_y, zero_division=0), 4),
-            'F1': round(f1_score(true_y, pred_y, zero_division=0), 4),
+            'accuracy': round(accuracy_score(true_y, pred_y), 4),
+            'precision': round(precision_score(true_y, pred_y, zero_division=0), 4),
+            'recall': round(recall_score(true_y, pred_y, zero_division=0), 4),
+            'f1': round(f1_score(true_y, pred_y, zero_division=0), 4),
         }
