@@ -16,15 +16,8 @@ def detect_device():
     return torch.device('cpu')
 
 class Method_RNN_Classifier(method, nn.Module):
-    def __init__(self, mName=None, mDescription=None, *,
-                 vocab_size=10000,
-                 cell_type='rnn',
-                 embedding_dim=64,
-                 hidden_dim=128,
-                 dropout=0.4,
-                 learning_rate=0.001,
-                 max_epoch=4,
-                 batch_size=128):
+    def __init__(self, mName=None, mDescription=None, *, vocab_size=10000, cell_type='rnn', embedding_dim=64, hidden_dim=128, dropout=0.4,
+                 learning_rate=0.001, max_epoch=4, batch_size=128):
         method.__init__(self, mName, mDescription)
         nn.Module.__init__(self)
         self.vocab_size = vocab_size
@@ -90,7 +83,6 @@ class Method_RNN_Classifier(method, nn.Module):
                 loss = loss_fn(outputs, y_batch)
                 loss.backward()
                 optimizer.step()
-
                 total_loss += loss.item() * X_batch.size(0)
                 correct += (outputs.argmax(dim=1) == y_batch).sum().item()
                 total += X_batch.size(0)
@@ -117,7 +109,7 @@ class Method_RNN_Classifier(method, nn.Module):
         return np.concatenate(predictions)
 
     def run(self, X_train, train_lengths, y_train, X_test, test_lengths):
-        print(f'--training {self.cell_type.upper()} classifier on {self.device}')
+        print(f'--Training {self.cell_type.upper()} classifier on {self.device}')
         self.train_model(X_train, train_lengths, y_train)
-        print('--testing classifier')
+        print('--Testing classifier')
         return self.test_model(X_test, test_lengths)
